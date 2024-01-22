@@ -1,8 +1,8 @@
-import Search from '@/app/ui/dashboard/search/search'
+import Search from "../../ui/dashboard/search/search"
 import styles from '../../ui/dashboard/users/users.module.css'
 import Link from "next/link";
 import Image from "next/image"
-import Pagination from '@/app/ui/dashboard/pagination/pagination';
+import Pagination from '../../ui/dashboard/pagination/pagination';
 
 const Userspage = () => {
   return (
@@ -44,7 +44,7 @@ const Userspage = () => {
             <td>Active</td>
             <td>
               <div className={styles.buttons}>
-            <Link href="/">
+            <Link href="/dashboard/users/test">
               <button className={`${styles.button} ${styles.view}`}>View</button>
             </Link>
               <button className={`${styles.button} ${styles.delete}`}>Delete</button>

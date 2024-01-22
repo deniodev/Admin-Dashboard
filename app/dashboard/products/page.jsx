@@ -1,15 +1,15 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import styles from "@/app/ui/dashboard/products/products.module.css";
-import Search from '@/app/ui/dashboard/search/search';
-import Pagination from '@/app/ui/dashboard/pagination/pagination';
+import styles from "../../ui/dashboard/products/products.module.css";
+import Search from '../../ui/dashboard/search/search';
+import Pagination from '../../ui/dashboard/pagination/pagination';
 
 const Productspage = () => {
   return (
     <div className={styles.container}>
     <div className={styles.top}>
       <Search placeholder="Search for a product..."/>
-      <Link href="/dashboard/products/add">
+      <Link href="/dashboard/products/test">
       <button className={styles.addButton}>Add New</button>
       </Link>        
     </div>
@@ -44,7 +44,7 @@ const Productspage = () => {
           <td>45</td>
           <td>
             <div className={styles.buttons}>
-          <Link href="/">
+          <Link href="/dashboard/products/test">
             <button className={`${styles.button} ${styles.view}`}>View</button>
           </Link>
             <button className={`${styles.button} ${styles.delete}`}>Delete</button>
