@@ -30,32 +30,34 @@ const Userspage = async () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
+          {users.map(user=>(
+          <tr key={user.id}>
             <td>
               <div className={styles.user}>
                 <Image 
-                src="/noavatar.png"
+                src={user.img || "/noavatar.png"}
                 alt=""
                 width={40}
                 height={40}
                 className={styles.userImage}
                 />
-                Joao Paulo
+                {user.username}
               </div>
             </td>
-            <td>joao@gmail.com</td>
-            <td>18.01.2024</td>
-            <td>Admin</td>
-            <td>Active</td>
+            <td>{user.email}</td>
+            <td>{user.createdAt?.toString().slice(4,16)}</td>
+            <td>{user.isAdmin ? "Admin" : "Client"}</td>
+            <td>{user.isActive ? "active" : "passive"}</td>
             <td>
               <div className={styles.buttons}>
-            <Link href="/dashboard/users/test">
+            <Link href={`/dashboard/users/${user.id}`}>
               <button className={`${styles.button} ${styles.view}`}>View</button>
             </Link>
               <button className={`${styles.button} ${styles.delete}`}>Delete</button>
               </div>
           </td>
           </tr>
+          ))}
         </tbody>
       </table>
       <Pagination />
