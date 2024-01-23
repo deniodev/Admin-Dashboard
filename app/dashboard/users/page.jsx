@@ -5,11 +5,10 @@ import Image from "next/image"
 import Pagination from '../../ui/dashboard/pagination/pagination';
 import { fetchUsers } from "../../lib/data";
 
-const Userspage = async () => {
+const Userspage = async ({searchParams}) => {
+  const q = searchParams?.q || "";
+  const users = await fetchUsers(q);
 
-  const users = await fetchUsers();
-
-  console.log(users)
   return (
     <div className={styles.container}>
       <div className={styles.top}>
