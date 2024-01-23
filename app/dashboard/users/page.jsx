@@ -3,8 +3,13 @@ import styles from '../../ui/dashboard/users/users.module.css'
 import Link from "next/link";
 import Image from "next/image"
 import Pagination from '../../ui/dashboard/pagination/pagination';
+import { fetchUsers } from "../../lib/data";
 
-const Userspage = () => {
+const Userspage = async () => {
+
+  const users = await fetchUsers();
+
+  console.log(users)
   return (
     <div className={styles.container}>
       <div className={styles.top}>
