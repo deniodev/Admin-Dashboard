@@ -4,6 +4,7 @@ import styles from "../../ui/dashboard/products/products.module.css";
 import Search from '../../ui/dashboard/search/search';
 import Pagination from '../../ui/dashboard/pagination/pagination';
 import { fetchProducts } from "../../lib/data";
+import { deleteProduct } from '../../lib/actions';
 
 const Productspage = async ({searchParams}) => {
   const q = searchParams?.q || "";
@@ -53,7 +54,10 @@ const Productspage = async ({searchParams}) => {
           <Link href={`/dashboard/products/${product.id}`}>
             <button className={`${styles.button} ${styles.view}`}>View</button>
           </Link>
+          <form action={deleteProduct}>
+            <input type="hidden" name="id" value={product.id} />
             <button className={`${styles.button} ${styles.delete}`}>Delete</button>
+            </form>
             </div>
         </td>
         </tr>
@@ -63,6 +67,6 @@ const Productspage = async ({searchParams}) => {
     <Pagination count={count}/>
   </div>
   )
-}
+};
 
 export default Productspage
