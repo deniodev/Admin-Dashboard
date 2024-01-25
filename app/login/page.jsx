@@ -1,14 +1,9 @@
+import LoginForm from "../../app/ui/login/loginForm/loginForm"
 import styles from "../ui/login/login.module.css"
 const Loginpage = () => {
   return (
-    <div className={styles.container}>
-      
-      <form action="" className={styles.form}>
-        <h1>Login</h1>
-        <input type="text" placeholder="username" />
-        <input type="password" placeholder="password" />
-        <button>Login</button>
-      </form>
+    <div className={styles.container}>      
+     <LoginForm />
     </div>
   )
 }
