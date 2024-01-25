@@ -5,7 +5,7 @@ import { revalidatePath } from "next/cache";
 import { Product, User } from "./models";
 import { connectToDB } from "./utils";
 import bcrypt from "bcrypt";
-
+import { signIn } from "../auth";
 
 export const addUser = async (formData) => {
     const { username, email, password, phone, address, isAdmin, isActive } =
@@ -152,4 +152,15 @@ export const addUser = async (formData) => {
       
         revalidatePath("/dashboard/products");
         redirect("/dashboard/products");
+      };
+
+      export const authenticate = async (formData) => {
+        const { username, password } = Object.fromEntries(formData);
+      
+        try {
+          await signIn("credentials", { username, password });
+        } catch (err) {
+          console.log(err);
+          throw err;
+        }
       };
